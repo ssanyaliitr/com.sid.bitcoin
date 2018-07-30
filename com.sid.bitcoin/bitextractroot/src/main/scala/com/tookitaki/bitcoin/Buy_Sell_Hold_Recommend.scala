@@ -7,6 +7,9 @@ import org.joda.time.{DateTime}
   */
 class Buy_Sell_Hold_Recommend(val days: Int) {
   val bitext_for_ma = new BitcoinExtract("all")
+  if(days/2 == 0 ){
+    throw new Exception(s"Cannot give recommendation for days/2 = ${days/2}")
+  }
   val bitcoin_price_lt = bitext_for_ma.extractBitcoinPrice().filter(a => (a.time.split('T')(0) >= DateTime.now().plusDays(-days).toString("yyyy-mm-dd") && a.time.split('T')(0) <= DateTime.now().toString("yyyy-mm-dd"))).map(a => a.price)
   val bitcoin_price_st = bitext_for_ma.extractBitcoinPrice().filter(a => (a.time.split('T')(0) >= DateTime.now().plusDays(-days/2).toString("yyyy-mm-dd") && a.time.split('T')(0) <= DateTime.now().toString("yyyy-mm-dd"))).map(a => a.price)
 

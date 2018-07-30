@@ -8,8 +8,8 @@ import org.joda.time.format.DateTimeFormat
 object BitCoinDriver extends App {
 
   var time_prd = args(0) // "week" | "day" | "year" | "all" | "month" | "yyyy-mm-dd"
-  val time1 = args(1) // "2018-07-01" <yyyy-mm-dd>
-  val time2 = args(2) // "2018-07-30" <yyyy-mm-dd>
+  val time1 = args(1) //args(1) // "2018-07-01" <yyyy-mm-dd>
+  val time2 = args(2) //args(2) // "2018-07-30" <yyyy-mm-dd>
   val days = args(3) // "4"
 
   time_prd match {
